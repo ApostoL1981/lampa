@@ -1,0 +1,280 @@
+@charset "UTF-8";
+
+:root {
+  --background-dark: #202020;
+  --background-modal: rgba(45, 45, 45, 0.99);
+  --background-translucent-white: rgba(255, 255, 255, 0.1);
+  --background-translucent-black: rgba(0, 0, 0, 0.1);
+  --color-focus-background: #fff;
+  --color-focus-text: #000;
+  --color-gray-text: #999999;
+  --color-red-translucent: rgba(255, 0, 0, 0.3);
+  --color-nav-background: #505050;
+  --border-highlight-online: #0033cc;
+  --border-highlight-torrent: #28a745;
+  --border-highlight-trailer: #cc0000;
+  --border-radius-small: 0.6em;
+  --border-radius-medium: 0.7em;
+  --border-radius-large: 1em;
+  --border-radius-card: 1.2em;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --shadow-online: 0 0 12px var(--border-highlight-online);
+  --shadow-torrent: 0 0 12px var(--border-highlight-torrent);
+  --shadow-trailer: 0 0 12px var(--border-highlight-trailer);
+}
+
+body.black--style {
+  --background-dark: #000;
+  --background-modal: rgba(0, 0, 0, 0.99);
+}
+
+body, .extensions, .console, .speedtest, .settings-input--free, .settings-input__content {
+  background: var(--background-dark);
+}
+
+.settings-folder.focus, .settings-param.focus, .selectbox-item.focus, .selectbox-item.hover {
+  background: var(--color-focus-background);
+  color: var(--color-focus-text);
+}
+
+body .online-empty__button.focus, body .online-empty__button.hover {
+  background: var(--color-focus-background);
+  color: var(--color-focus-text);
+  animation: animation-button-focus var(--transition-fast);
+}
+
+.settings__content, .selectbox__content, .modal__content {
+  background: var(--background-modal);
+}
+
+body.platform--browser .modal__content, body.platform--browser .settings__content, body.platform--browser .selectbox__content {
+  backdrop-filter: blur(10px);
+  background: rgba(45, 45, 45, 0.8);
+}
+
+.explorer__files .torrent-filter .simple-button:not(.focus), .season-info, .season-episode, .reaction, .register, .simple-button, .modal__button, .tag-count, .notice.focus, .torrent-item, .torrent-serial, .person-start__tag, .torrent-serial__size, .info__rate, .full-start__button, .full-start__tag, .full-start__rate, .full-start__rate > div:first-child, .full-start__status, .online-prestige, .online-empty__button, .iptv-menu__list-item.active {
+  background-color: var(--background-translucent-white);
+}
+
+.full-start__background.loaded {
+  opacity: 0.2;
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+}
+
+.simple-button--filter.focus > div, .head__body, .console__tab.focus > span {
+  background-color: var(--background-translucent-black);
+}
+
+.selectbox-item.focus .selectbox-item__checkbox, .settings-folder.focus .settings-folder__icon, .selectbox-item.selected:not(.nomark).focus::after, .selectbox-item.picked.focus::after {
+  filter: invert(1);
+  -webkit-filter: invert(1);
+}
+
+.console__time, .settings-param-title > span {
+  color: var(--color-gray-text);
+}
+
+.full-start__status {
+  border: none;
+}
+
+.full-start-new__rate-line .full-start__pg {
+  font-size: 1.2em;
+}
+
+.explorer-card__head-age {
+  font-size: 1em;
+}
+
+.full-start__deta .full-start__pg, .full-start-new__rate-line .full-start__pg, .explorer-card__head-age {
+  background-color: var(--color-red-translucent);
+  border: none;
+}
+
+.navigation-bar__body, .torrent-serial.focus {
+  background-color: var(--color-nav-background);
+}
+
+.online-empty__button, .modal__button, .explorer__files .torrent-filter .simple-button:not(.focus) {
+  border-radius: var(--border-radius-small);
+}
+
+.card__vote {
+  right: 0;
+  bottom: 0;
+  padding: 0.2em 0.45em;
+  border-radius: 0.75em 0;
+}
+
+.card--tv .card__type {
+  background: rgba(0,0,0,0.5);
+}
+
+.card__type {
+  left: 0;
+  top: 0;
+  padding: 0.3em 0.6em;
+  border-radius: var(--border-radius-card) 0;
+}
+
+.explorer__files .torrent-filter {
+  margin-bottom: 0.5em;
+}
+
+.extensions__item {
+  background-color: var(--color-nav-background);
+  width: 16em;
+}
+
+.register {
+  min-width: 15em;
+}
+
+.register__name {
+  max-width: 12em;
+}
+
+.head__time-date, .head__time-week {
+  text-align: center;
+}
+
+.account-add-device .about {
+  margin-bottom: 0;
+  margin-top: 3em;
+  font-size: 2.5em;
+}
+
+.items-line--type-top .items-cards .card:nth-child(1) {
+  margin-left: 0;
+}
+
+.items-line--type-top .items-cards .card:nth-child(2), .items-line--type-top .items-cards .card:nth-child(3) {
+  margin-left: 1em;
+}
+
+.items-line--type-top .items-cards .card:nth-child(-n+3)::before {
+  display: none;
+}
+
+/*
+@keyframes pulse-online {
+  0%, 100% { box-shadow: var(--shadow-online); }
+  50% { box-shadow: 0 0 20px var(--border-highlight-online); }
+}
+
+@keyframes pulse-torrent {
+  0%, 100% { box-shadow: var(--shadow-torrent); }
+  50% { box-shadow: 0 0 20px var(--border-highlight-torrent); }
+}
+
+@keyframes pulse-trailer {
+  0%, 100% { box-shadow: var(--shadow-trailer); }
+  50% { box-shadow: 0 0 20px var(--border-highlight-trailer); }
+}
+*/
+
+.full-start__button.view--online, .full-start__button.view--torrent, .full-start__button.view--trailer {
+  will-change: box-shadow;
+  transition: box-shadow var(--transition-normal);
+  outline: none;
+}
+
+/*
+.full-start__button.view--online {
+  box-shadow: var(--shadow-online);
+}
+
+.full-start__button.view--online:focus, .full-start__button.view--online:hover {
+  animation: pulse-online 2s infinite;
+}
+
+.full-start__button.view--torrent {
+  box-shadow: var(--shadow-torrent);
+}
+
+.full-start__button.view--torrent:focus, .full-start__button.view--torrent:hover {
+  animation: pulse-torrent 2s infinite;
+}
+
+.full-start__button.view--trailer {
+  box-shadow: var(--shadow-trailer);
+}
+
+.full-start__button.view--trailer:focus, .full-start__button.view--trailer:hover {
+  animation: pulse-trailer 2s infinite;
+}
+*/
+
+@media (max-width: 1024px) {
+  .card__type svg {
+    width: 2.3em;
+    height: 2.3em;
+  }
+}
+
+@media (max-width: 767px) {
+  .full-start__button.view--online, .full-start__button.view--torrent, .full-start__button.view--trailer {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  /*
+  .full-start__button.view--online {
+    box-shadow: 0 0 8px 3px var(--border-highlight-online) inset, 0 0 8px var(--border-highlight-online);
+  }
+  .full-start__button.view--online:focus, .full-start__button.view--online:hover {
+    animation: pulse-online 2s infinite;
+    box-shadow: 0 0 14px 6px var(--border-highlight-online) inset, 0 0 14px var(--border-highlight-online);
+  }
+  .full-start__button.view--torrent {
+    box-shadow: 0 0 8px 3px var(--border-highlight-torrent) inset, 0 0 8px var(--border-highlight-torrent);
+  }
+  .full-start__button.view--torrent:focus, .full-start__button.view--torrent:hover {
+    animation: pulse-torrent 2s infinite;
+    box-shadow: 0 0 14px 6px var(--border-highlight-torrent) inset, 0 0 14px var(--border-highlight-torrent);
+  }
+  .full-start__button.view--trailer {
+    box-shadow: 0 0 8px 3px var(--border-highlight-trailer) inset, 0 0 8px var(--border-highlight-trailer);
+  }
+  .full-start__button.view--trailer:focus, .full-start__button.view--trailer:hover {
+    animation: pulse-trailer 2s infinite;
+    box-shadow: 0 0 14px 6px var(--border-highlight-trailer) inset, 0 0 14px var(--border-highlight-trailer);
+  }
+  */
+}
+
+@media screen and (min-width: 580px) {
+  .settings__content, .settings-input__content, .selectbox__content {
+    border-left: 1em solid transparent;
+  }
+  .selectbox-item.focus, .settings-folder.focus, .settings-param.focus {
+    border-radius: var(--border-radius-medium) 0 0 var(--border-radius-medium);
+    transform: translateX(0.2em);
+  }
+  .menu__item, .selectbox-item, .settings-folder, .settings-param {
+    will-change: transform;
+    transition: transform var(--transition-normal);
+  }
+  .menu__item.focus {
+    border-radius: 0 var(--border-radius-large) var(--border-radius-large) 0;
+    transform: translateX(-0.2em);
+  }
+  .menu__list {
+    padding-left: 0;
+  }
+  body.advanced--animation:not(.no--animation) .head .head__action.focus, body.advanced--animation:not(.no--animation) .head .head__action.hover, body.advanced--animation:not(.no--animation) .full-start__button.focus, body.advanced--animation:not(.no--animation) .full-start__button.hover, body.advanced--animation:not(.no--animation) .simple-button.focus, body.advanced--animation:not(.no--animation) .simple-button.hover, body.advanced--animation:not(.no--animation) .full-descr__tag.focus, body.advanced--animation:not(.no--animation) .full-descr__tag.hover, body.advanced--animation:not(.no--animation) .tag-count.focus, body.advanced--animation:not(.no--animation) .tag-count.hover, body.advanced--animation:not(.no--animation) .full-review.focus, body.advanced--animation:not(.no--animation) .full-review.hover, body.advanced--animation:not(.no--animation) .full-review-add.focus, body.advanced--animation:not(.no--animation) .full-review-add.hover {
+    animation: animation-button-focus var(--transition-fast);
+  }
+  body.advanced--animation:not(.no--animation) .menu .menu__item.focus, body.advanced--animation:not(.no--animation) .menu .menu__item.hover {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
